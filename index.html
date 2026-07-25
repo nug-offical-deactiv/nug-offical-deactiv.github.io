@@ -1,13 +1,14 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <title>Lift</title> <style> @font-face {
-  font-family: 'Montserrat Variable';
-  src: url('https://gabenugget1141.github.io/Montserrat-VariableFont_wght.ttf') format('truetype');
-  font-weight: 100 900; /* Variable range */
-  font-style: normal;
-}
-
-body {
-  font-family: 'Montserrat Variable', Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  margin-top: 50px;
-}.building { position: relative; width: 200px; height: 400px; /* Updated for 4 floors */ border: 2px solid #333; } .floor { height: 100px; border-bottom: 1px solid #ccc; display: flex; justify-content: space-between; align-items: center; padding: 0 10px; background-color: #f0f0f0; } .shaft { position: absolute; left: 80px; bottom: 0; width: 40px; height: 400px; /* Updated for 4 floors */ border-left: 2px solid #000; border-right: 2px solid #000; } .lift { position: absolute; bottom: 0; width: 40px; height: 100px; background-color: #444; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: bold; font-size: 14px; } .indicator { background-color: #222; padding: 4px 6px; border-radius: 4px; } </style> </head> <body> <div class="building"> <div class="floor">Floor 03 <button onclick="callLift(3)">Call</button></div> <div class="floor">Floor 02 <button onclick="callLift(2)">Call</button></div> <div class="floor">Floor 01 <button onclick="callLift(1)">Call</button></div> <div class="floor">Floor GR <button onclick="callLift(0)">Call</button></div> <div class="shaft"> <div class="lift" id="lift"> <div class="indicator" id="indicator">GR</div> </div> </div> </div> <script> const floorNames = { 0: "GR", 1: "01", 2: "02", 3: "03" }; const floorHeight = 100; let currentFloor = 0; let animationFrame; function easeInOut(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; } function callLift(targetFloor) { const lift = document.getElementById("lift"); const indicator = document.getElementById("indicator"); const start = currentFloor * floorHeight; const end = targetFloor * floorHeight; const distance = Math.abs(targetFloor - currentFloor); const duration = distance * 1000; const startTime = performance.now(); cancelAnimationFrame(animationFrame); function animate(time) { const elapsed = time - startTime; const t = Math.min(elapsed / duration, 1); const eased = easeInOut(t); const position = start + (end - start) * eased; lift.style.bottom = `${position}px`; const approxFloor = Math.round(position / floorHeight); indicator.textContent = floorNames[approxFloor] || "?"; if (t < 1) { animationFrame = requestAnimationFrame(animate); } else { currentFloor = targetFloor; } } animationFrame = requestAnimationFrame(animate); } </script> </body> </html>
+<!DOCTYPE html> <html lang="en"> <head> 
+  <meta charset="UTF-8">
+  <title>nug.zip</title> 
+  <style> @font-face {
+    font-family: 'Montserrat';
+    src: url('https://gabenugget1141.github.io/Montserrat-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900; 
+    font-style: normal;
+  }
+  body{
+    font-family: 'Montserrat';
+  }
+  </style>
+<h1>hey, i'm nug</h1>
